@@ -3,11 +3,12 @@ Bundler.require
 
 desc 'Run console'
 task :console do
-  sh 'irb -r ./application'
+  sh 'irb -r ./config/application'
 end
 
 namespace :db do
-  require_relative 'database'
+  require_relative 'config/environment'
+  require_relative 'config/database'
 
   desc 'Create and setup a database'
   task :create do

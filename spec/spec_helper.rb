@@ -1,1 +1,3 @@
-require_relative '../application'
+ENV['RACK_ENV'] = 'test'
+
+require_relative '../config/application'

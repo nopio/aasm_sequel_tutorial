@@ -1,9 +1,7 @@
-class Invoice
+class Invoice < Sequel::Model
   include AASM
 
-  attr_reader :name
-
-  aasm do
+  aasm column: :state do
     after_all_transitions :log_status_change
 
     state :draft, initial: true
@@ -31,10 +29,6 @@ class Invoice
     event :archive, after: :archive_data do
       transitions from: [:upaid, :paid], to: :archived
     end
-  end
-
-  def initialize(name)
-    @name = name
   end
 
   def send_invoice

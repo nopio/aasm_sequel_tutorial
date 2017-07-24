@@ -1,9 +1,9 @@
-require 'aasm'
+require_relative 'spec_helper'
 require_relative '../app/invoice'
 
 RSpec.describe Invoice do
   let(:name) { 'Test invoice' }
-  let(:instance) { described_class.new(name) }
+  let(:instance) { described_class.new(name: name) }
 
   describe 'initial state' do
     subject { instance.draft? }

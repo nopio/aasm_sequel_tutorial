@@ -7,8 +7,7 @@ task :console do
 end
 
 namespace :db do
-  require_relative 'config/environment'
-  require_relative 'config/database'
+  require_relative 'config/application'
 
   desc 'Create and setup a database'
   task :create do

@@ -6,9 +6,9 @@ RSpec.describe Invoice do
   let(:instance) { described_class.new(name: name) }
 
   describe 'initial state' do
-    subject { instance.draft? }
+    subject { instance }
 
-    it { is_expected.to be_truthy }
+    it { is_expected.to have_state(:draft) }
   end
 
   describe 'archive' do
